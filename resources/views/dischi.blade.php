@@ -64,16 +64,35 @@
         </style>
     </head>
     <body>
-        @foreach ($dischi as  $disco)
+        <div class="">
+            <h2>Dischi prima del 1995</h2>
+            @foreach ($dischi as  $disco)
 
-            @if ($disco['anno'] < '1995' )
+                @if ($disco['anno'] < '1995' )
 
-                <p>{{$disco['anno']}}</p>
-            @endif
-        
-        @if ($dischi )
+                    <p>{{$disco['anno']}}</p>
+                @endif
+            @endforeach
+        </div>
+        <div class="">
+            <h2>Dischi tra il 1995 ed il 2005</h2>
+            @foreach ($dischi as  $disco)
 
-        @endif
+                @if ($disco['anno'] > '1995' && $disco['anno'] < '2005'  )
 
+                    <p>{{$disco['anno']}}</p>
+                @endif
+            @endforeach
+        </div>
+        <div class="">
+            <h2>Dischi dopo il 2005</h2>
+            @foreach ($dischi as  $disco)
+
+                @if ($disco['anno'] > '2005' )
+
+                    <p>{{$disco['anno']}}</p>
+                @endif
+            @endforeach
+        </div>
     </body>
 </html>
